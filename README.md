@@ -71,7 +71,7 @@ lib
 
 ### Prerequisites
 
-- Ensure you have Flutter installed. For installation instructions, visit [Flutter.dev](https://flutter.dev/docs/get-started/install).
+- Ensure you have Flutter version 3.22.2 installed. For installation instructions, visit [Flutter.dev](https://flutter.dev/docs/get-started/install).
 - A compatible IDE (like Android Studio, IntelliJ IDEA, or Visual Studio Code) with Flutter plugins installed.
 
 ### Running the App
