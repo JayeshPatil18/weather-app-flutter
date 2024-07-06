@@ -6,10 +6,12 @@ import 'features/weather/presentation/provider/weather_provider.dart';
 import 'features/weather/presentation/screens/home_screen.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
