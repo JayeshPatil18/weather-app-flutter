@@ -12,6 +12,10 @@ Welcome to the **Weather Flutter App**, a simple and intuitive application to ge
 
 </br>
 
+*Release Mode APK* [Click here](https://github.com/JayeshPatil18/weather-app-flutter/blob/master/app-release.apk)
+
+![Available](https://github.com/JayeshPatil18/weather-app-flutter/blob/master/weather-app-flutter.png)
+
 ## Description
 
 **Weather Flutter App** is designed to provide current weather information for a given city. Users can enter the name of the city on the home screen and view detailed weather information on the weather details screen.
