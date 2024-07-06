@@ -1,5 +1,5 @@
 <div align="left">
-  <h1>Weather Flutter App 🌦️</h1>
+  <h1>Weather App 🌦️ - Flutter App</h1>
   <img alt="Flutter" src="https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white" style="margin-left: 10px;">
   <img alt="Dart" src="https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white" style="margin-left: 10px;">
   <a href="https://github.com/yourusername/weather-flutter-app">
@@ -52,20 +52,19 @@ We follow a clean architecture approach to ensure a scalable and maintainable co
 ```plaintext
 lib
 │
-├── models
-│   └── weather_model.dart
+├── common
+│   ├── colors
 │
-├── providers
-│   └── weather_provider.dart
-│
-├── screens
-│   ├── home_screen.dart
-│   └── weather_screen.dart
-│
-├── services
-│   └── weather_service.dart
-│
-└── main.dart
+├── features
+│   ├── weather
+│       ├── data
+│       │   └── repository
+│       ├── domain
+│       │   └── entities
+│       ├── presentation
+│           ├── provider
+│           ├── screens
+│           └── widgets
 ```
 
 ## Instructions
@@ -78,21 +77,24 @@ lib
 ### Running the App
 
 1. Clone this repository:
-    ```bash
+
+   ```bash
     git clone <repository-url>
 
-2. Navigate into the project directory:
+3. Navigate into the project directory:
+
    ```bash
    cd weather_app_flutter
 
-3. Install dependencies:
+5. Install dependencies:
+
    ```bash
    flutter pub get
 
-4. Run the app:
+7. Run the app:
+
    ```bash
    flutter run
-
 
 Ensure your device (emulator or physical device) is connected and running.
 
