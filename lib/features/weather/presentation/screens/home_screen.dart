@@ -20,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: primaryColor,
       appBar: AppBar(
         title: Text('Weather App', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
         backgroundColor: secondaryColor,
@@ -33,6 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Container(
+              margin: EdgeInsets.only(top: 20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -107,6 +108,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
+            Expanded(
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 80),
+                  child: Image.asset('assets/img/forecast.png', height: 250,)),
+            ),
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
@@ -120,7 +126,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 }
               },
               child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 4),
+                padding: const EdgeInsets.all(6),
                 child: Text('Get Weather', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white)),
               ),
               style: ElevatedButton.styleFrom(
@@ -129,6 +135,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 textStyle: TextStyle(fontSize: 18),
               ),
             ),
+            SizedBox(height: 40),
           ],
         ),
       ),

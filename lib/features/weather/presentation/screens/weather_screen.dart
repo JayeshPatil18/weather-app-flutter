@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:weather_app/common/colors.dart';
 
 import '../provider/weather_provider.dart';
 
@@ -13,9 +14,37 @@ class WeatherScreen extends StatelessWidget {
     final weatherProvider = Provider.of<WeatherProvider>(context);
 
     return Scaffold(
+      backgroundColor: primaryColor,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: Container(
+        margin:
+        const EdgeInsets.only(left: 30, right: 30, bottom: 10, top: 10),
+        child: Container(
+          height: 55,
+          width: double.infinity,
+          child: ElevatedButton.icon(
+            onPressed: () {
+              weatherProvider.fetchWeather(city);
+            },
+            icon: Icon(Icons.refresh, color: Colors.white),
+            label: Text('Refresh', style: TextStyle(color: Colors.white)),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: highlightColor,
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              textStyle: TextStyle(fontSize: 18),
+            ),
+          )
+        ),
+      ),
       appBar: AppBar(
-        title: Text('Weather Details'),
-        backgroundColor: Colors.blueAccent,
+        title: Text('Weather Report', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500)),
+        backgroundColor: secondaryColor,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.white), // Change back button color here
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        ),
       ),
       body: Center(
         child: weatherProvider.isLoading
@@ -86,19 +115,6 @@ class WeatherScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 30),
-                ElevatedButton.icon(
-                  onPressed: () {
-                    weatherProvider.fetchWeather(city);
-                  },
-                  icon: Icon(Icons.refresh),
-                  label: Text('Refresh'),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blueAccent,
-                    padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-                    textStyle: TextStyle(fontSize: 18),
-                  ),
-                ),
-                SizedBox(height: 20),
               ],
             ),
           ),
