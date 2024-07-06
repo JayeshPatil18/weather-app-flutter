@@ -131,7 +131,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               style: ElevatedButton.styleFrom(
                 backgroundColor: highlightColor,
-                padding: EdgeInsets.symmetric(vertical: 16),
+                padding: EdgeInsets.symmetric(vertical: 14),
                 textStyle: TextStyle(fontSize: 18),
               ),
             ),

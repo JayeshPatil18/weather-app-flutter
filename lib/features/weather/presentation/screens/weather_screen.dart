@@ -47,81 +47,108 @@ class WeatherScreen extends StatelessWidget {
         ),
       ),
       body: Center(
-        child: weatherProvider.isLoading
-            ? CircularProgressIndicator()
-            : weatherProvider.errorMessage != null
-            ? Text(
-          weatherProvider.errorMessage!,
-          style: TextStyle(color: Colors.red, fontSize: 18),
-        )
-            : weatherProvider.weather != null
-            ? Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Card(
-            elevation: 5,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(height: 20),
-                Text(
-                  weatherProvider.weather!.cityName,
-                  style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
-                ),
-                SizedBox(height: 10),
-                Text(
-                  '${weatherProvider.weather!.temperature}°C',
-                  style: TextStyle(fontSize: 64, fontWeight: FontWeight.w300),
-                ),
-                SizedBox(height: 10),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.network(
-                      'http://openweathermap.org/img/w/${weatherProvider.weather!.icon}.png',
-                      scale: 0.8,
+        child: Container(
+          decoration: BoxDecoration(
+              color: secondaryColor.withOpacity(0.8),
+            borderRadius: BorderRadius.circular(14)
+          ),
+          margin: EdgeInsets.only(bottom: 200, top: 30, left: 30, right: 30),
+          child: weatherProvider.isLoading
+              ? CircularProgressIndicator(color: highlightColor)
+              : weatherProvider.errorMessage != null
+              ? Text(
+            weatherProvider.errorMessage!,
+            style: TextStyle(color: Colors.red, fontSize: 18),
+          )
+              : weatherProvider.weather != null
+              ? Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  SizedBox(height: 60),
+                  Text(
+                    weatherProvider.weather!.cityName,
+                    style: TextStyle(
+                      fontSize: 32,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white
                     ),
-                    SizedBox(width: 10),
-                    Text(
-                      weatherProvider.weather!.condition,
-                      style: TextStyle(fontSize: 24),
+                  ),
+                  SizedBox(height: 10),
+                  Text(
+                    '${weatherProvider.weather!.temperature}°C',
+                    style: TextStyle(
+                      fontSize: 64,
+                      fontWeight: FontWeight.w300,
+                      color: Colors.white
                     ),
-                  ],
-                ),
-                SizedBox(height: 20),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 40.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  ),
+                  SizedBox(height: 10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text('Humidity:', style: TextStyle(fontSize: 18)),
-                          Text('${weatherProvider.weather!.humidity}%', style: TextStyle(fontSize: 18)),
-                        ],
+                      Image.network(
+                        'http://openweathermap.org/img/w/${weatherProvider.weather!.icon}.png',
+                        scale: 0.6, // Increase the size of the weather icon
                       ),
-                      SizedBox(height: 10),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text('Wind Speed:', style: TextStyle(fontSize: 18)),
-                          Text('${weatherProvider.weather!.windSpeed} m/s', style: TextStyle(fontSize: 18)),
-                        ],
+                      SizedBox(width: 10),
+                      Text(
+                        weatherProvider.weather!.condition,
+                        style: TextStyle(
+                          fontSize: 24,
+                          color: Colors.white
+                        ),
                       ),
                     ],
                   ),
-                ),
-                SizedBox(height: 30),
-              ],
+                  SizedBox(height: 40),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Humidity:',
+                              style: TextStyle(fontSize: 18, color: Colors.white),
+                            ),
+                            Text(
+                              '${weatherProvider.weather!.humidity}%',
+                              style: TextStyle(fontSize: 18, color: Colors.white),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 10),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Wind Speed:',
+                              style: TextStyle(fontSize: 18, color: Colors.white),
+                            ),
+                            Text(
+                              '${weatherProvider.weather!.windSpeed} m/s',
+                              style: TextStyle(fontSize: 18, color: Colors.white),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 30),
+                ],
+              ),
             ),
+          )
+              : Text(
+            'No data available',
+            style: TextStyle(fontSize: 18),
           ),
-        )
-            : Text(
-          'No data available',
-          style: TextStyle(fontSize: 18),
         ),
       ),
     );
